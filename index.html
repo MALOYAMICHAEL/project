@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="com">AFYAHub</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/project.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar" style="display: flex; align-items: center; padding: 10px; background-color: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+        
+        <div style="margin-right: auto; display: flex; align-items: center;">
+            <img src="img/logo.png" alt="Logo" style="height: 50px; width: 50px; border-radius: 50%; margin-right: 10px;">
+            <h1 style="font-weight: bolder; margin: 0;" >AFYA </h1>
+            <h1 style="font-weight: bolder; color: grey; margin: 0; margin-left: 5px;">Hub</h1>
+            <h1 style="font-weight: bolder; margin-left: 10px; margin: 0;">health services</h1>
+        </div>
+        
+        
+        <div class="navbar-links" style="display: flex; flex-grow: 2; align-items: center; ">
+            <a href="#home" style="flex-grow: 1; text-align: center; text-decoration: none; color: black; font-size: small;">Home</a>
+            <a href="#services" style="flex-grow: 1; text-align: center; text-decoration: none; color: black; font-size: small;">Services</a>
+            <a href="contacts" style="flex-grow: 1; text-align: center; text-decoration: none; color: black; font-size: small;">contacts</a>
+            
+            <a href="#about-us" style="flex-grow: 2; text-align: center; text-decoration: none; color: black; font-size: small;">About us</a>
+        </div>
+    
+        
+        <div style="display: flex; align-items: center;">
+            <button class="login-btn" style="border: none; background-color: white; margin-right: 10px;">Log in</button>
+            <button class="sign-up-btn" style="background-color: black; color: white;">Sign up</button>
+        </div>
+    </nav>
+    
+
+    
+    
+   
+    <div id="registrationForm" class="modal" style="display: none; position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); align-items: center; justify-content: center;">
+        <div style="background-color:  lightgrey; padding: 20px; border-radius: 5px; width: 300px;">
+            <h2 style="text-align: center;">Registration Form</h2>
+            <form id="registerForm">
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" name="first-name" required>
+                <br>
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" name="last-name" required>
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <br>
+                <button style="color: white; background-color: black;" type="button" onclick="submitForm()">Submit</button>
+            </form>
+        </div>
+    </div>
+    
+   
+    <div id="loginForm" class="modal" style="display: none; position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); align-items: center; justify-content: center;">
+        <div style="background-color: lightgrey; padding: 20px; border-radius: 5px; width: 300px; margin: 5px;">
+            <h2 style="text-align: center;">Log In</h2>
+            <form id="loginFormElement">
+                <label for="login-email" style="margin: 5px;">Email:</label>
+                <input type="email" id="login-email" name="login-email" required>
+                <br>
+                <label for="login-password">Password:</label>
+                <input type="password" id="login-password" name="login-password" required>
+                <br>
+                <button style="color: white; background-color: black;" type="button" onclick="submitLoginForm()">Log In</button>
+            </form>
+        </div>
+    </div>
+    
+    
+    <div id="messagePopup" class="modal" style="display: none; position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); align-items: center; justify-content: center;">
+        <div style="background-color: white; padding: 20px; border-radius: 5px; width: 300px; text-align: center;">
+            <h2 id="messageText"></h2>
+            <button style="color: white; background-color: black; margin-top: 5px;" onclick="closeMessagePopup()">Close</button>
+        </div>
+    </div>
+
+
+    <div id="title" class="flex-container" style="flex-wrap: wrap;">
+        <div class="container" style="flex-grow: 30; max-width: 100%; max-height: 100%; height: auto; flex: 1 1 50%;">
+            <h1 style="font-weight: bold;">Welcome to quality health services</h1>
+            <p style="max-width: 500px;">We specialize in chronic health conditions,and digitally available  services. Our dedicated team ensures high-quality production and distribution.
+            
+            
+        
+            <div class="flex-container">
+                <div>
+                    <input type="text">
+                </div>
+                <div class="button">
+                    <button class="sign-up-btn" style="color: white; background-color: black;">Sign up</button>
+                </div>
+            </div>
+            <div class="flex-container">
+                <div style="flex-grow: 0.1;">
+                    <button class="open-popup" style="background-color: black; color: white;">Book Now</button>
+                </div>
+                <a >
+                <div class="hero-buttons" style="color: black;">
+                    <button class="play-button" style="width: 40px; height: 40px; border-radius: 50%; background-color: grey;">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    Play Video
+                </div>
+            </a>
+            </div>
+        </div>
+        <div class="img-container" style="flex: 1 1 50%; display: flex;">
+            <img src="IMG/pexels-pixabay-256455.jpg" alt="Loading......" style="max-width: 100%; max-height: 100%; height: 400px; width: 1000px; margin: auto; display: block;">
+        </div>
+    </div>
+
+    <div class="wrapper" style="display: flex; justify-content: center; align-items: center;  width: 100%; margin: 0; padding: 0;">
+        <div id="counter" class="flex-container" style="background-color: black; color: white; display: flex; align-items: center; justify-content: center; max-width: 100%; width: 1000px; padding: 20px; box-sizing: border-box;">
+            <div class="container" style="flex-grow: 1;  border-right: 3px solid grey; padding: 10px; text-align: center;"
+            >
+                <h1>95%</h1>
+                <p>Success Rate</p>
+            </div>
+            <div class="container" style="flex-grow: 1; border-right: 3px solid grey; padding: 10px; text-align: center;">
+                <h1 >1,000+</h1>
+                <p>Market Services offered</p>
+            </div>
+            <div class="container" style="flex-grow: 1; border-right: 3px solid grey; padding: 10px; text-align: center;">
+                <h1>3,000+</h1>
+                <p>positive feedback</p>
+            </div>
+            <div class="container" style="flex-grow: 1; padding: 10px; text-align: center;">
+                <h1>100%</h1>
+                <p>reliable</p>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="wrapper" style="display: flex; justify-content: center; align-items: center;">
+        
+        <div style="color: grey; font-weight: bold; margin-right: 5px;">
+            Our Best
+        </div>
+        <div style="font-weight: bold;">
+            Services
+        </div>
+    </div>
+    
+    <div class="wrapper" style="display: flex; justify-content: center; align-items: center;">
+        
+        <div class="flex-container" style="color: white; align-items: center; max-height: 200px; max-width: fit-content; margin: 50px; justify-content: center;">
+            <div class="container" style="flex-grow: 30; background-color: grey; margin: 0 10px; display: flex; flex-direction: column; height: 170px; align-items: center; padding: 10px;">
+                <img src="data:image/jpeg;base64,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" alt="image loading......" style="height: 50px; width: 50px; border-radius: 50%; margin: 10px;">
+                <h4>All doctors</h4>
+                <p></p>
+            </div>
+            <div class="container" style="flex-grow: 30; background-color: grey; margin: 0 10px; display: flex; flex-direction: column; height: 170px; align-items: center; padding: 10px;">
+                <img src="" alt="image loading......" style="height: 50px; width: 50px; border-radius: 50%; margin: 10px;">
+                <h5>Private & Secure</h5>
+                <p></p>
+            </div>
+            <div class="container" style="flex-grow: 30; background-color: grey; margin: 0 10px; display: flex; flex-direction: column; height: 170px; align-items: center; padding: 10px;">
+                <img src="data:image/jpeg;base64,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" alt="image loading......" style="height: 50px; width: 50px; border-radius: 50%; margin: 10px;">
+                <h4>Million Clients</h4>
+                <p></p>
+            </div>
+            <div class="container" style="flex-grow: 30; background-color: grey; margin: 0 10px; display: flex; flex-direction: column; height: 170px; align-items: center; padding: 10px;">
+                <img src="img/" alt="image loading......" style="height: 50px; width: 50px; border-radius: 50%; margin: 10px;">
+                <h4></h4>
+                <p></p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="wrapper" style="display: flex; justify-content: center; align-items: center;">
+    
+        <div id="counter" class="flex-container" style="display: flex; color: white; margin: 50px; align-items: center; max-height: 130px; max-width: fit-content; justify-content: center;">
+            <div class="container" style="flex-grow: 30; height: 130px; width: 130px; background-color: grey; margin: 0 10px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <img src="IMG/pexels-pixabay-53536.jpg" alt="image loading......" style="height: 50px; width: 50px; border-radius: 50%; margin: 10px;">
+                <h5>health is wealth</h5>
+            </div>
+            <div class="container" style="flex-grow: 30; height: 130px; width: 130px; background-color: grey; margin: 0 10px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <img src="IMG/pexels-polina-tankilevitch-3735191.jpg" alt="image loading......" style="height: 50px; width: 50px; border-radius: 50%; margin: 10px;">
+                <h5>Aim for better</h5>
+            </div>
+            <div class="container" style="flex-grow: 30; height: 130px; width: 130px; background-color: grey; margin: 0 10px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <img src="IMG/pexels-amos-getanda-244415932-12496864.jpg" alt="image loading......" style="height: 50px; width: 50px; border-radius: 50%; margin: 10px;">
+                <h5>Knowledge is power</h5>
+            </div>
+            <div class="container" style="flex-grow: 30; height: 130px; width: 130px; background-color: grey; margin: 0 10px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <img src="IMG/pexels-furkanfdemir-7080688.jpg" alt="image loading......" style="height: 50px; width: 50px; border-radius: 50%; margin: 10px;">
+                <h5>The best experienced doctors</h5>
+            </div>
+            <div class="container" style="flex-grow: 30; height: 130px; width: 130px; background-color: grey; margin: 0 10px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <img src="IMG/pexels-saqlain-ashraf-clicks-2425782-14023126.jpg" alt="image loading......" style="height: 50px; width: 50px; border-radius: 50%; margin: 10px;">
+                <h5>Your life time partner</h5>
+            </div>
+            <div class="container" style="flex-grow: 30; height: 130px; width: 130px; background-color: grey; margin: 0 10px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <img src="IMG/pexels-natureye-28277410.jpg" alt="image loading......" style="height: 50px; width: 50px; border-radius: 50%; margin: 10px;">
+                <h6>Together we can</h6>
+            </div>
+        </div>
+    </div>
+    
+    <p style="margin: auto; margin-left: 50px; font-weight: bold;">Are You Looking For:</p>
+    
+     <div class="wrapper" 
+     style="display: flex;
+     justify-content: center;
+     align-items: center;">
+
+        <div id="counter" 
+            class="flex-container" 
+            style="
+            color: white; 
+            margin: 50px;
+            align-items: center;
+            
+            max-width:200px;
+            box-align: center;
+            justify-self: center;
+            justify-content: center;">r
+                <div class="container"  style="flex-grow: 30; height: 80px; width: 130px; justify-content: center; background-color: grey; margin: 0 10px;">
+                   
+                    <h5 style="color: black; font-weight: bold;"> consultuncy </h5>
+                    <p>Best health services in the world</p>
+                    
+                </div>
+                <div class="container"  style="flex-grow: 30; height: 80px; width: 130px; background-color: grey; margin: 0 10px;">
+                    
+                    <h5  style="color: black; font-weight: bold;"></h5>
+                    <p> </p>
+                </div>
+                <div class="container"  style="flex-grow: 30; height: 80px; width: 130px;  background-color: grey; margin: 0 10px;">
+                   
+                    <h5  style="color: black; font-weight: bold;"></h5>
+                    <p>Our health centers are all over the world</p>
+                </div>    
+                <div class="container"  style="flex-grow: 30; height: 80px; width: 130px; background-color: grey; margin: 0 10px;">
+                   
+                    <h5  style="color: black; font-weight: bold;"></h5>
+                    <p></p>
+                </div>
+               
+            </div>    
+        </div>
+     </div>
+     <div class="wrapper" style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
+        <div style="color: grey; font-weight: bold; margin-right: 5px;">
+            Our Best
+        </div>
+        <div style="font-weight: bold;">
+            doctors
+        </div>
+    </div>
+    
+    <div class="wrapper" style="display: flex; justify-content: center; align-items: flex-start; margin-bottom: 50px;">
+        <div id="counter" class="flex-container" style="display: flex; justify-content: space-between; align-items: stretch; max-width: 1200px; margin: 0; padding: 10px; box-sizing: border-box; width: 100%;">
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; margin: 10px;">
+                <div class="container" style="min-height: 150px; min-width: 130px; padding: 10px; background-color: grey; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                    <img src="IMG/pexels-mikhail-nilov-8730378.jpg" alt="Dr. Alexa" style="height: 50px; width: 50px; border-radius: 50%; margin: 10px;">
+                    <h5 style="margin: 0;">Name:Dr.Michael Maloya Contact:+25490045378</h5>
+                </div>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; margin: 10px;">
+                <div class="container" style="min-height: 150px; min-width: 130px; padding: 10px; background-color: grey; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                    <img src="IMG/pexels-artempodrez-6584755.jpg" alt="Dr. Robert" style="height: 50px; width: 50px; border-radius: 50%; margin: 10px;">
+                    <h5 style="margin: 0;">Name:Dr.Robert Kiyosaki Contact:+25437897430</h5>
+                </div>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; margin: 10px;">
+                <div class="container" style="min-height: 150px; min-width: 130px; padding: 10px; background-color: grey; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                    <img src="IMG/pexels-cottonbro-4865526.jpg" alt="Dr. Ishmail" style="height: 50px; width: 50px; border-radius: 50%; margin: 10px;">
+                    <h5 style="margin: 0;">Name:Dr.Rachael Minayo Contact:+25467854327</h5>
+                </div>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; margin: 10px;">
+                <div class="container" style="min-height: 150px; min-width: 130px; padding: 10px; background-color: grey; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                    <img src="IMG/pexels-116281951-12077463.jpg" alt="Dr. Vishnu" style="height: 50px; width: 50px; border-radius: 50%; margin: 10px;">
+                    <h5 style="margin: 0;">Name:Dr.Reishi Hassan Contact:+25436725634</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="wrapper" 
+     style="display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 50px;"> 
+    <div style="color: rgb(179, 49, 49); font-weight: bold; margin-right: 5px;">
+        Easy Steps And  
+    </div>
+    <div style="font-weight: bold;">
+        Get Your Solution
+    </div>
+</div>
+
+<div class="wrapper" 
+     style="display: flex;
+            justify-content: center;
+            align-items: flex-start; 
+            margin-bottom: 50px;"> 
+    <div id="counter" 
+         class="flex-container" 
+         style="display: flex; 
+                justify-content: space-between; 
+                align-items: stretch;
+                max-width: 100%; 
+                margin: 0; 
+                padding: 10px; 
+                box-sizing: border-box;">
+        
+        <div style="flex: 1; 
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin: 10px;">
+            <div class="container" style="background-color: grey; display: flex; justify-content: center; align-items: center;">
+                <img src="IMG/pexels-cottonbro-4865526.jpg" alt="image loading......" 
+                     style="height: 50px; 
+                            width: 50px; 
+                            border-radius: 50%; 
+                            margin: 10px;">
+            </div>
+            <div class="container" style="color: black; 
+                                           text-align: center;">
+                <h5>Check doctors Profile</h5>
+                <p>Check the best doctors in the world</p>
+            </div>    
+        </div>
+        <div style="flex: 1; 
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin: 10px;">
+            <div class="container" style="background-color: grey; display: flex; justify-content: center; align-items: center;">
+                <img src="IMG/request icon.png" alt="image loading......" 
+                     style="height: 50px; 
+                            width: 50px; 
+                            border-radius: 50%; 
+                            margin: 10px;">
+            </div>
+            <div class="container" style="color: black; 
+                                           text-align: center;">
+                <h5>Request Consultation</h5>
+                <p>Request consultation about anything</p>
+            </div>    
+        </div>
+        <div style="flex: 1; 
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin: 10px;">
+            <div class="container" style="background-color: grey; display: flex; justify-content: center; align-items: center;">
+                <img src="IMG/receive icon.png" alt="image loading......" 
+                     style="height: 50px; 
+                            width: 50px; 
+                            border-radius: 50%; 
+                            margin: 10px;">
+            </div>
+            <div class="container" style="color: black; 
+                                           text-align: center;">
+                <h5>Receive Your Consultation</h5>
+                <p>Ready to consult you at any time</p>
+            </div>    
+        </div>
+        <div style="flex: 1; 
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin: 10px;">
+            <div class="container" style="background-color: rgb(128, 128, 128); display: flex; justify-content: center; align-items: center;">
+                <img src="IMG/solution icon.png" alt="image loading......" 
+                     style="height: 50px; 
+                            width: 50px; 
+                            border-radius: 50%; 
+                            margin: 10px;">
+            </div>
+            <div class="container" style="color: black; 
+                                           text-align: center;">
+                <h5>Get Your Solution</h5>
+                <p>Get solutions instantly</p>
+            </div>    
+        </div>
+    </div>
+</div>
+
+<div id="title" class="flex-container" 
+     style="display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center;
+            align-items: center; 
+            padding: 20px;">
+    <div class="container" style="flex: 1 1 50%;
+                                  max-width: 100%;
+                                  max-height: 100%;
+                                  height: auto;
+                                  text-align: center;">
+        <div style="color: grey; font-weight: bold;">
+            <h1>Best services</h1>   
+        </div>
+        <div style="font-weight: bold;">
+            <h1> Get them Anywhere And Anytime</h1>
+        </div>
+        <p style="max-width: 500px; margin: 0 auto;">
+           
+        </p>
+        <div class="flex-container" style="margin-top: 20px;">
+            <div style="text-align: center;">
+                <button class="open-popup" style="background-color: black; color: white;">Find doctors Now</button>
+            </div>
+        </div>
+    </div>
+    <div class="container img" style="flex: 1 1 50%; 
+                                       display: flex; 
+                                       justify-content: center; 
+                                       align-items: center;">
+        <img src="IMG/pexels-gabby-k-7139727.jpg" alt="Loading......" 
+             style="max-width: 100%;
+                    max-height: 500px;
+                    margin: auto;
+                    display: block;
+                    height: 330px">
+    </div>
+</div>
+
+<div id="title" class="flex-container" 
+     style="display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center;
+            align-items: center; 
+            padding: 20px;"> 
+    <div class="container img" style="flex: 1 1 50%; 
+                                       display: flex; 
+                                       justify-content: center; 
+                                       align-items: center;">
+        <img src="IMG/pexels-furkanfdemir-7080688.jpg" alt="Loading......" 
+             style="max-width: 100%;
+                    max-height: 500px;
+                    margin: auto;
+                    display: block;
+                    height: 330px;">
+    </div>
+    <div class="container" style="flex: 1 1 50%;
+                                  max-width: 100%;
+                                  max-height: 500px;
+                                  height: auto;
+                                  text-align: center;">
+        <div style="color: grey; font-weight: bold; margin-right: 5px;">
+            <h1></h1>   
+        </div>
+        <div style="font-weight: bold; margin-right: 5px;">
+            <h1></h1>
+        </div>
+        <div style="color: grey; font-weight: bold;">
+            <h1></h1>   
+        </div>
+        <p style="max-width: 500px; margin: 0 auto;">
+           
+        </p>
+        <div class="flex-container" style="margin-top: 20px;">
+            <div style="text-align: center;">
+                <button class="open-popup" style="background-color: black; color: white;"></button>
+                
+            </div>
+        </div>
+    
+        
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <span class="close">&times;</span>
+                <p>Login first to proceed.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="wrapper" 
+style="display: flex;
+justify-content: center;
+align-items: center;">
+<div style="display: flex; flex-direction: row; align-items: center;">
+                    <h4 style="font-weight: bolder; 
+                    color: grey; 
+                    margin: 0;
+                    margin-right: 5px;">What People Say</h4>   
+               
+                
+                    <h4 style="font-weight: bolder; 
+                    margin: 0; 
+                    margin-right: 5px;">About us</h4>
+                
+                
+                       
+                </div>
+</div>
+
+<div class="wrapper" 
+     style="display: flex;
+            justify-content: center;
+            align-items: flex-start; 
+            margin-bottom: 50px;">
+    <div id="counter" 
+         class="flex-container" 
+         style="display: flex; 
+                justify-content: space-between; 
+                align-items: stretch;
+                width: 100%;
+                
+                margin: 0; 
+                padding: 10px; 
+                box-sizing: border-box;">
+        <div style="flex: 1; 
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin: 10px;">
+            <div class="container"  
+                 style="flex: 1;
+                        height: 130px; 
+                        background-color: grey; 
+                        width: 100%; 
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;">
+                <img src="IMG/pexels-olly-756484.jpg" alt="image loading......" 
+                     style="height: 50px; 
+                            width: 50px;
+                            border-radius: 50%;
+                            margin: 10px;">
+                <h5>Noah Odawa</h5>
+                <p>AFYAHub provides a variety of self-test services including heart rate, blood pressure, with the help of smartwatches .</p>
+            </div>
+        </div>
+        <div style="flex: 1; 
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin: 10px;">
+            <div class="container"  
+                 style="flex: 1; 
+                        height: 130px; 
+                        background-color: grey; 
+                        width: 100%; 
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;">
+                <img src="IMG/pexels-tima-miroshnichenko-6825986.jpg" alt="image loading......" 
+                     style="height: 50px; 
+                            width: 50px;
+                            border-radius: 50%;
+                            margin: 10px;">
+                <h5>Esther Dawson</h5>
+                <p>Get consultation from anywhere, order for doctos  visit anytime.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper" 
+     style="display: flex;
+            justify-content: center;
+            align-items: flex-start; 
+            margin-bottom: 50px;
+            width: 100%;">
+    <div id="counter" 
+         class="flex-container" 
+         style="display: flex; 
+                justify-content: space-between; 
+                align-items: center;
+                width: 100%;
+                background-color: purple;
+                margin: 0; 
+                padding: 10px; 
+                box-sizing: border-box;">
+                <div style="flex: 1; 
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                margin: 10px;">
+        <div class="text-container" style="flex: 1;
+                                           display: flex;
+                                           flex-direction: row;
+                                           align-items: center;">
+            <div style="display: flex; flex-direction: row; align-items: center;">
+                <h4 style="font-weight: bolder; 
+                color: grey; 
+                margin: 0;
+                margin-right: 5px;">Want to</h4>   
+           
+            
+                <h4 style="font-weight: bolder; 
+                margin: 0; 
+                margin-right: 5px;">Register</h4>
+            
+            
+                <h4 style="font-weight: bolder; color: grey; margin: 0; margin-right: 5px;">Easily?</h4>   
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="button-container" style="margin: 10px; 
+                                          display: flex; 
+                                          align-items: center;">
+        <button class="sign-up-btn" style="background-color: black; color: white; padding: 10px 20px; border: none; cursor: pointer;">Submit Here</button>
+    </div>
+</div>
+</div>
+
+<div class="wrapper" 
+ style="display: flex;
+        justify-content: center;
+        align-items: flex-start; 
+        margin-bottom: 50px;
+        width: 100%;">
+<div id="counter" 
+     class="flex-container" 
+     style="display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            width: 100%;
+            
+            margin: 0; 
+            padding: 10px; 
+            box-sizing: border-box;">
+    <div class="container" 
+    style="display: flex; 
+           flex-direction: column; 
+           width: 100%; 
+           margin: 10px; 
+           align-items: center; 
+           padding: 10px; 
+           box-sizing: border-box;">
+   
+   <div style="display: flex; align-items: center;">
+       <img src="img/logo.png" alt="image loading......" 
+            style="height: 30px; width: 30px; 
+                   border-radius: 50%; 
+                   margin-right: 10px;">
+       
+       <div style="display: flex; flex-direction: row; align-items: center;">
+           <h4 style="font-weight: bolder; margin: 0; ">AFYA</h4>
+           <h4 style="font-weight: bolder; color: grey; margin: 0;">hero-buttons</h4>
+           <h4 style="font-weight: bolder; margin: 0; margin-left: 10px; ">Health services</h4>
+       </div>
+   </div>
+   <div style="display: flex; align-items: center;">
+        <p>Visit us on our social media platforms below. 
+        You may feel free to contact us via them if need of assistance </p>
+   </div>
+   <div style="display: flex; align-items: center;">
+    <div style="display: flex; flex-direction: row; align-items: center;">
+        <a href="https://twitter.com/login">
+            <button style="height: 30px; width: 30px; 
+            border-radius: 50%; 
+            margin-right: 10px; 
+            padding: 0; 
+            border: none; 
+            background: transparent; 
+            overflow: hidden;">
+            <img src="data:image/png;base64,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" alt="Twitter" 
+                style="height: 100%; width: 100%; 
+                        display: block; 
+                        border-radius: 50%;">
+            </button>
+        </a>
+        <a href="https://www.linkedin.com/login">
+            <button style="height: 30px; width: 30px; 
+                        border-radius: 50%; 
+                        margin-right: 10px; 
+                        padding: 0; 
+                        border: none; 
+                        background: transparent; 
+                        overflow: hidden;">
+            <img src="data:image/png;base64,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" alt="LinkedIn" 
+                style="height: 100%; width: 100%; 
+                        display: block; 
+                        border-radius: 50%;">
+            </button>
+        </a>
+        <a href="https://www.instagram.com/accounts/login/?hl=en">
+            <button style="height: 30px; width: 30px; 
+                        border-radius: 50%; 
+                        margin-right: 10px; 
+                        padding: 0; 
+                        border: none; 
+                        background: transparent; 
+                        overflow: hidden;"> 
+            <img src="data:image/jpeg;base64,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" alt="Instagram" 
+                style="height: 100%; width: 100%; 
+                        display: block; 
+                        border-radius: 50%;">
+            </button>
+        </a>
+        <a href="https://www.facebook.com/login.php/">
+            <button style="height: 30px; width: 30px; 
+                        border-radius: 50%; 
+                        margin-right: 10px; 
+                        padding: 0; 
+                        border: none; 
+                        background: transparent; 
+                        overflow: hidden;">
+            <img src="data:image/jpeg;base64,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" alt="Facebook" 
+                style="height: 100%; width: 100%; 
+                        display: block; 
+                        border-radius: 50%;">
+            </button>
+        </a>
+
+    </div>
+</div>
+</div>
+
+    <div class="container" 
+    style="flex-direction: column; 
+    display: flex;
+    width: 100%;
+    margin: 10px;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    ">
+    <h1 style="font-weight: bolder;">
+        Features
+    </h1>
+    <div style=" flex-direction: column; margin: 0px;">
+        <a href="#home" style="color: black;" class="nav-link">Home</a>
+        <a href="#services" style="color: black;" class="nav-link">Services</a>
+        <a href="#contacts" style="color: black;" class="nav-link">contacts</a>
+       
+        <a href="#about-us" style="color: black;"  class="nav-link">About us</a>
+    </div>
+    </div>
+    <div class="container" 
+    style="flex-direction: column; 
+    display: flex;
+    width: 100%;
+    margin: 10px;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    ">
+    <h1 style="font-weight: bolder;">
+        User
+    </h1>
+    <button class="login-btn" style="border: none; background-color: white;">
+        User Login
+    </button>
+
+    <button class="sign-up-btn" style="border: none; color: black; background-color: white;">
+        User Registeration
+    </button>
+
+    
+
+    
+    <button id="resetPasswordButton" style="border: none; background-color: white;">
+        Forget password
+    </button>
+
+    
+    <div id="resetPasswordModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Reset Password</h2>
+            <form id="emailForm">
+                <div class="form-group">
+                    <label for="email">Enter your email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+
+    <button class="open-popup" style="border: none; background-color: white;">
+        Account Settings
+    </button>
+    </div>
+
+</div>    
+</div>
+
+
+
+        <script src="main-js/main.js"></script>
+    </div>
+</div>
+
+    
+            
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.11/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
